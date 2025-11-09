@@ -1,8 +1,15 @@
 
 import React from 'react'
 import { Users, Award, Globe, Heart } from 'lucide-react'
+import { useConfig } from '../contexts/ConfigContext'
 
 export default function AboutPage() {
+  const { content } = useConfig()
+  const heroTitle =
+    content?.about?.heroTitle ?? "We're on a mission to help teams work better together"
+  const heroSubtitle =
+    content?.about?.heroSubtitle ??
+    "Since 2007, we've been building tools that help teams collaborate, communicate, and deliver exceptional results."
   const stats = [
     { number: '50,000+', label: 'Teams worldwide' },
     { number: '2M+', label: 'Projects completed' },
@@ -65,13 +72,8 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            We're on a mission to help teams work better together
-          </h1>
-          <p className="text-xl text-gray-600">
-            Since 2007, we've been building tools that help teams collaborate, 
-            communicate, and deliver exceptional results.
-          </p>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">{heroTitle}</h1>
+          <p className="text-xl text-gray-600">{heroSubtitle}</p>
         </div>
       </section>
 

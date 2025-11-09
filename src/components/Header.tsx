@@ -2,8 +2,12 @@
 import React, { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, ChevronDown } from 'lucide-react'
+import { useConfig } from '../contexts/ConfigContext'
 
 export default function Header() {
+  const config = useConfig()
+  const siteIdentity = config?.siteIdentity || {}
+  const primaryColor = config?.theming?.primaryColor
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isProductsOpen, setIsProductsOpen] = useState(false)
   const [isResourcesOpen, setIsResourcesOpen] = useState(false)
@@ -18,10 +22,21 @@ export default function Header() {
           {/* Logo */}
           <div className="flex items-center">
             <Link to="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">T</span>
-              </div>
-              <span className="text-xl font-bold text-gray-900">Teamwork</span>
+              {siteIdentity.logoUrl ? (
+                <img
+                  src={siteIdentity.logoUrl}
+                  alt={siteIdentity.name || 'Logo'}
+                  className="w-8 h-8 rounded-lg object-cover"
+                />
+              ) : (
+                <div
+                  className="w-8 h-8 rounded-lg flex items-center justify-center"
+                  style={{ backgroundColor: primaryColor || '#2563eb' }}
+                >
+                  <span className="text-white font-bold text-lg">T</span>
+                </div>
+              )}
+              <span className="text-xl font-bold text-gray-900">{siteIdentity.name || 'Teamwork'}</span>
             </Link>
           </div>
 

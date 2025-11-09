@@ -1,0 +1,50 @@
+{
+  "siteIdentity": {
+    "name": "默认站点名称",
+    "logoUrl": "/default-logo.png",
+    "slogan": "让协作更高效",
+    "description": "团队协作与项目管理统一平台"
+  },
+  "theming": {
+    "primaryColor": "#666666"
+  },
+  "seo": {
+    "title": "Teamwork - 项目管理与协作",
+    "description": "帮助团队高效管理项目、任务和沟通。",
+    "keywords": ["项目管理", "团队协作", "任务管理"]
+  },
+  "apiEndpoints": {
+    "strapi_url": "https://api.yourdomain.com",
+    "strapi_site_slug": "default-site"
+  },
+  "integrations": {
+    "gtm_id": "GTM-58TDPTJ3"
+  },
+  "content": {
+    "home": {
+      "heroTitle": "让项目管理更简单",
+      "heroSubtitle": "简化你的工作流程、无缝协作、按时交付项目——一体化平台，深受全球团队信赖。",
+      "ctaPrimaryText": "开始免费试用",
+      "ctaSecondaryText": "观看演示"
+    },
+    "features": {
+      "heroTitle": "功能与优势",
+      "heroSubtitle": "覆盖团队协作、时间跟踪、报表分析与企业级安全。"
+    },
+    "pricing": {
+      "heroTitle": "定价方案",
+      "heroSubtitle": "为不同团队规模提供灵活透明的价格选择。"
+    },
+    "about": {
+      "heroTitle": "关于我们",
+      "heroSubtitle": "我们的使命是让每个团队都能更高效地交付成果。"
+    },
+    "resources": {
+      "blogTitle": "最新博客文章",
+      "blogSubtitle": "掌握最新的项目管理洞察与技巧"
+    },
+    "footer": {
+      "companyDescription": "一体化的项目管理平台，帮助团队协作、跟踪进度并更快交付成果。"
+    }
+  }
+}

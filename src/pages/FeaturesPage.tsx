@@ -1,8 +1,14 @@
 
 import React from 'react'
+import { useConfig } from '../contexts/ConfigContext'
 import { CheckCircle, Users, Clock, BarChart3, FileText, Calendar, MessageSquare, Shield } from 'lucide-react'
 
 export default function FeaturesPage() {
+  const { content } = useConfig()
+  const heroTitle = content?.features?.heroTitle ?? 'Powerful features for modern teams'
+  const heroSubtitle =
+    content?.features?.heroSubtitle ??
+    'Discover all the tools and features that make Teamwork the complete project management solution for teams of all sizes.'
   const features = [
     {
       icon: Users,
@@ -83,13 +89,8 @@ export default function FeaturesPage() {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Powerful features for modern teams
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Discover all the tools and features that make Teamwork the complete 
-            project management solution for teams of all sizes.
-          </p>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">{heroTitle}</h1>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">{heroSubtitle}</p>
         </div>
       </section>
 

@@ -1,9 +1,15 @@
 
 import React, { useState } from 'react'
 import { Check, X } from 'lucide-react'
+import { useConfig } from '../contexts/ConfigContext'
 
 export default function PricingPage() {
   const [isAnnual, setIsAnnual] = useState(false)
+  const { content } = useConfig()
+  const heroTitle = content?.pricing?.heroTitle ?? 'Simple, transparent pricing'
+  const heroSubtitle =
+    content?.pricing?.heroSubtitle ??
+    "Choose the plan that's right for your team. All plans include a 30-day free trial."
 
   const plans = [
     {
@@ -113,12 +119,8 @@ export default function PricingPage() {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Simple, transparent pricing
-          </h1>
-          <p className="text-xl text-gray-600 mb-8">
-            Choose the plan that's right for your team. All plans include a 30-day free trial.
-          </p>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">{heroTitle}</h1>
+          <p className="text-xl text-gray-600 mb-8">{heroSubtitle}</p>
           
           {/* Billing Toggle */}
           <div className="flex items-center justify-center space-x-4 mb-8">

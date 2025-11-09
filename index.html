@@ -5,17 +5,38 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Teamwork.com - Project Management & Team Collaboration</title>
+    <title>正在加载...</title>
+    <script>
+      // 设置全局默认配置，阻塞式加载 /config.json
+      window.APP_CONFIG = {
+        siteIdentity: { name: '加载失败' },
+        apiEndpoints: { strapi_url: '', strapi_site_slug: 'error' },
+        integrations: { gtm_id: 'GTM-58TDPTJ3' },
+      };
+      try {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '/config.json', false);
+        xhr.send(null);
+        if (xhr.status === 200) {
+          window.APP_CONFIG = JSON.parse(xhr.responseText);
+        } else {
+          console.warn('无法加载外部 config.json，将使用默认配置。');
+        }
+      } catch (error) {
+        console.error('加载 config.json 时出错:', error);
+      }
+    </script>
     <!-- Google Tag Manager -->
     <script>
-      (function(w,d,s,l,i){
+      (function(w,d,s,l){
+        var i = (w.APP_CONFIG && w.APP_CONFIG.integrations && w.APP_CONFIG.integrations.gtm_id) || 'GTM-58TDPTJ3';
         w[l]=w[l]||[];
         w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
         var f=d.getElementsByTagName(s)[0], j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
         j.async=true;
         j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
         f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-58TDPTJ3');
+      })(window,document,'script','dataLayer');
     </script>
     <!-- End Google Tag Manager -->
   </head>

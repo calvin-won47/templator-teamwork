@@ -1,5 +1,16 @@
-export const API_URL = 'https://2amcreations.com'
-export const SITE_SLUG = 'xmyxyswkj'
+const cfg: any = typeof window !== 'undefined' ? (window as any).APP_CONFIG : null
+const API_URL_FALLBACK = 'https://2amcreations.com'
+const SITE_SLUG_FALLBACK = 'xmyxyswkj'
+export const API_URL = (
+  cfg?.apiEndpoints?.strapi_url ||
+  cfg?.strapi?.strapi_url ||
+  API_URL_FALLBACK
+)
+export const SITE_SLUG = (
+  cfg?.apiEndpoints?.strapi_site_slug ||
+  cfg?.strapi?.strapi_site_slug ||
+  SITE_SLUG_FALLBACK
+)
 
 export function buildUrl(path: string): string {
   return `${API_URL}${path}`
