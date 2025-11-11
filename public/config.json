@@ -25,7 +25,17 @@
       "heroTitle": "让项目管理更简单",
       "heroSubtitle": "简化你的工作流程、无缝协作、按时交付项目——一体化平台，深受全球团队信赖。",
       "ctaPrimaryText": "开始免费试用",
-      "ctaSecondaryText": "观看演示"
+      "ctaSecondaryText": "观看演示",
+      "featuresSectionTitle": "你需要的所有项目管理能力",
+      "featuresSectionSubtitle": "从规划到执行，完整工具帮助团队协作并交付成果。",
+      "productShowcaseTitle": "以前所未有的方式可视化你的项目",
+      "productShowcaseSubtitle": "交互式甘特图、看板与时间轴视图，让计划更直观。",
+      "collaborationTitle": "实时协作，保持信息同步",
+      "collaborationSubtitle": "内置消息、文件共享与实时更新，让团队始终保持一致。",
+      "testimonialsTitle": "全球团队的共同选择",
+      "testimonialsSubtitle": "看看客户如何评价 Teamwork",
+      "ctaTitle": "准备好升级你的项目管理？",
+      "ctaSubtitle": "加入成千上万的团队，立即开始免费试用或联系销售。"
     },
     "features": {
       "heroTitle": "功能与优势",
@@ -40,8 +50,17 @@
       "heroSubtitle": "我们的使命是让每个团队都能更高效地交付成果。"
     },
     "resources": {
+      "heroTitle": "资源中心，助你成功",
+      "heroSubtitle": "从指南、模板到网络研讨会，充分释放项目潜力。",
       "blogTitle": "最新博客文章",
-      "blogSubtitle": "掌握最新的项目管理洞察与技巧"
+      "blogSubtitle": "掌握最新的项目管理洞察与技巧",
+      "templatesTitle": "免费项目模板",
+      "templatesSubtitle": "用专业模板快速启动项目。",
+      "webinarsTitle": "网络研讨会与活动",
+      "webinarsSubtitle": "加入专家直播，学习最佳实践。",
+      "helpTitle": "需要更多帮助？",
+      "helpSubtitle": "访问帮助中心，获取详细指南、教程与常见问题。",
+      "helpPrimaryText": "访问帮助中心"
     },
     "footer": {
       "companyDescription": "一体化的项目管理平台，帮助团队协作、跟踪进度并更快交付成果。"

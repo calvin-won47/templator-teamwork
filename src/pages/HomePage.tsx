@@ -2,8 +2,40 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Play, CheckCircle, ArrowRight, Users, Clock, BarChart3, Shield } from 'lucide-react'
+import { useConfig } from '../contexts/ConfigContext'
 
 export default function HomePage() {
+  const { content } = useConfig()
+  const h = content?.home || {}
+  const heroTitle = h.heroTitle ?? (
+    <>
+      Project management made
+      <span className="text-blue-600"> simple</span>
+    </>
+  )
+  const heroSubtitle =
+    h.heroSubtitle ??
+    'Streamline your workflow, collaborate seamlessly, and deliver projects on time with the all-in-one project management platform trusted by thousands of teams worldwide.'
+  const ctaPrimaryText = h.ctaPrimaryText ?? 'Start free trial'
+  const ctaSecondaryText = h.ctaSecondaryText ?? 'Watch demo'
+  const featuresSectionTitle = h.featuresSectionTitle ?? 'Everything you need to manage projects'
+  const featuresSectionSubtitle =
+    h.featuresSectionSubtitle ??
+    'From planning to execution, Teamwork provides all the tools your team needs to collaborate effectively and deliver exceptional results.'
+  const productShowcaseTitle = h.productShowcaseTitle ?? 'Visualize your projects like never before'
+  const productShowcaseSubtitle =
+    h.productShowcaseSubtitle ??
+    "Get a bird's eye view of all your projects with interactive Gantt charts, Kanban boards, and timeline views that make project planning intuitive."
+  const collaborationTitle = h.collaborationTitle ?? 'Collaborate in real-time'
+  const collaborationSubtitle =
+    h.collaborationSubtitle ??
+    'Keep your team connected with built-in messaging, file sharing, and real-time updates that ensure everyone stays in the loop.'
+  const testimonialsTitle = h.testimonialsTitle ?? 'Trusted by teams worldwide'
+  const testimonialsSubtitle = h.testimonialsSubtitle ?? 'See what our customers have to say about Teamwork'
+  const ctaTitle = h.ctaTitle ?? 'Ready to transform your project management?'
+  const ctaSubtitle =
+    h.ctaSubtitle ??
+    'Join thousands of teams who have already made the switch to Teamwork. Start your free trial today and see the difference.'
   const features = [
     {
       icon: Users,
@@ -55,21 +87,13 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
-                Project management made
-                <span className="text-blue-600"> simple</span>
-              </h1>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Streamline your workflow, collaborate seamlessly, and deliver projects on time with 
-                the all-in-one project management platform trusted by thousands of teams worldwide.
-              </p>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">{heroTitle}</h1>
+              <p className="text-xl text-gray-600 mb-8 leading-relaxed">{heroSubtitle}</p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link to="/signup" className="btn-primary text-center">
-                  Start free trial
-                </Link>
+                <Link to="/signup" className="btn-primary text-center">{ctaPrimaryText}</Link>
                 <button className="flex items-center justify-center space-x-2 bg-white hover:bg-gray-50 text-gray-700 font-semibold py-3 px-6 rounded-lg border border-gray-300 transition-colors duration-200">
                   <Play className="w-5 h-5" />
-                  <span>Watch demo</span>
+                  <span>{ctaSecondaryText}</span>
                 </button>
               </div>
               <p className="text-sm text-gray-500 mt-4">
@@ -97,13 +121,8 @@ export default function HomePage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Everything you need to manage projects
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              From planning to execution, Teamwork provides all the tools your team needs 
-              to collaborate effectively and deliver exceptional results.
-            </p>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{featuresSectionTitle}</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">{featuresSectionSubtitle}</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -125,13 +144,8 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Visualize your projects like never before
-              </h2>
-              <p className="text-lg text-gray-600 mb-6">
-                Get a bird's eye view of all your projects with interactive Gantt charts, 
-                Kanban boards, and timeline views that make project planning intuitive.
-              </p>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">{productShowcaseTitle}</h2>
+              <p className="text-lg text-gray-600 mb-6">{productShowcaseSubtitle}</p>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-center space-x-3">
                   <CheckCircle className="w-5 h-5 text-green-500" />
@@ -169,13 +183,8 @@ export default function HomePage() {
               />
             </div>
             <div className="order-1 lg:order-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Collaborate in real-time
-              </h2>
-              <p className="text-lg text-gray-600 mb-6">
-                Keep your team connected with built-in messaging, file sharing, 
-                and real-time updates that ensure everyone stays in the loop.
-              </p>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">{collaborationTitle}</h2>
+              <p className="text-lg text-gray-600 mb-6">{collaborationSubtitle}</p>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-center space-x-3">
                   <CheckCircle className="w-5 h-5 text-green-500" />
@@ -203,12 +212,8 @@ export default function HomePage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Trusted by teams worldwide
-            </h2>
-            <p className="text-xl text-gray-600">
-              See what our customers have to say about Teamwork
-            </p>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{testimonialsTitle}</h2>
+            <p className="text-xl text-gray-600">{testimonialsSubtitle}</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -235,19 +240,12 @@ export default function HomePage() {
       {/* CTA Section */}
       <section className="py-20 bg-blue-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Ready to transform your project management?
-          </h2>
-          <p className="text-xl text-blue-100 mb-8">
-            Join thousands of teams who have already made the switch to Teamwork. 
-            Start your free trial today and see the difference.
-          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">{ctaTitle}</h2>
+          <p className="text-xl text-blue-100 mb-8">{ctaSubtitle}</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/signup" className="btn-outline">
-              Start free trial
-            </Link>
+            <Link to="/signup" className="btn-outline">{ctaPrimaryText}</Link>
             <Link to="/contact" className="bg-white hover:bg-gray-100 text-blue-600 font-semibold py-3 px-6 rounded-lg transition-colors duration-200">
-              Contact sales
+              {content?.home?.ctaSecondaryText ?? 'Contact sales'}
             </Link>
           </div>
         </div>

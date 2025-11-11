@@ -1,8 +1,13 @@
 
 import React from 'react'
 import { Calendar, User, ArrowRight, Download, Play } from 'lucide-react'
+import { useConfig } from '../contexts/ConfigContext'
 
 export default function ResourcesPage() {
+  const { content } = useConfig()
+  const r = content?.resources || {}
+  const heroTitle = r.heroTitle ?? 'Resources to help you succeed'
+  const heroSubtitle = r.heroSubtitle ?? 'Discover guides, templates, webinars, and best practices to get the most out of your projects.'
   const blogPosts = [
     {
       title: '10 Project Management Best Practices for 2024',
@@ -95,12 +100,8 @@ export default function ResourcesPage() {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Resources to help you succeed
-          </h1>
-          <p className="text-xl text-gray-600">
-            Discover guides, templates, webinars, and best practices to get the most out of your projects.
-          </p>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">{heroTitle}</h1>
+          <p className="text-xl text-gray-600">{heroSubtitle}</p>
         </div>
       </section>
 
@@ -109,8 +110,8 @@ export default function ResourcesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center mb-12">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Latest from our blog</h2>
-              <p className="text-xl text-gray-600">Stay up to date with the latest project management insights and tips.</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{r.blogTitle ?? 'Latest from our blog'}</h2>
+              <p className="text-xl text-gray-600">{r.blogSubtitle ?? 'Stay up to date with the latest project management insights and tips.'}</p>
             </div>
             <button className="hidden md:flex items-center space-x-2 text-blue-600 hover:text-blue-700 font-semibold">
               <span>View all posts</span>
@@ -158,12 +159,8 @@ export default function ResourcesPage() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Free project templates
-            </h2>
-            <p className="text-xl text-gray-600">
-              Jump-start your projects with our collection of professionally designed templates.
-            </p>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{r.templatesTitle ?? 'Free project templates'}</h2>
+            <p className="text-xl text-gray-600">{r.templatesSubtitle ?? 'Jump-start your projects with our collection of professionally designed templates.'}</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -195,12 +192,8 @@ export default function ResourcesPage() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Webinars & events
-            </h2>
-            <p className="text-xl text-gray-600">
-              Join our experts for live sessions on project management best practices.
-            </p>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{r.webinarsTitle ?? 'Webinars & events'}</h2>
+            <p className="text-xl text-gray-600">{r.webinarsSubtitle ?? 'Join our experts for live sessions on project management best practices.'}</p>
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -253,14 +246,10 @@ export default function ResourcesPage() {
       {/* Help Center CTA */}
       <section className="py-20 bg-blue-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Need more help?
-          </h2>
-          <p className="text-xl text-blue-100 mb-8">
-            Visit our comprehensive help center for detailed guides, tutorials, and FAQs.
-          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">{r.helpTitle ?? 'Need more help?'}</h2>
+          <p className="text-xl text-blue-100 mb-8">{r.helpSubtitle ?? 'Visit our comprehensive help center for detailed guides, tutorials, and FAQs.'}</p>
           <button className="bg-white hover:bg-gray-100 text-blue-600 font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
-            Visit help center
+            {r.helpPrimaryText ?? 'Visit help center'}
           </button>
         </div>
       </section>
