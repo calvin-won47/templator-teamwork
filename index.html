@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>正在加载...</title>
+    <title>Teamwork - 项目管理与协作</title>
     <script>
       // 设置全局默认配置，阻塞式加载 /config.json
       window.APP_CONFIG = {
@@ -25,6 +25,14 @@
       } catch (error) {
         console.error('加载 config.json 时出错:', error);
       }
+      // 根据配置更新页面标题（SEO）
+      (function() {
+        var cfg = window.APP_CONFIG || {};
+        var title = (cfg.seo && cfg.seo.title)
+          || (cfg.siteIdentity && cfg.siteIdentity.name)
+          || 'Teamwork - 项目管理与协作';
+        document.title = String(title);
+      })();
     </script>
     <!-- Google Tag Manager -->
     <script>
