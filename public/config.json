@@ -14,7 +14,7 @@
     "keywords": ["项目管理", "团队协作", "任务管理"]
   },
   "apiEndpoints": {
-    "strapi_url": "https://api.yourdomain.com",
+    "strapi_url": "https://2amcreations.com",
     "strapi_site_slug": "default-site"
   },
   "integrations": {
